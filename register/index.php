@@ -16,7 +16,7 @@
         </div>
 
         <!-- Form -->
-        <form id="registerForm" class="space-y-5">
+        <form id="registerForm" action="../auth/register_process.php" method="POST" class="space-y-5">
             <!-- Username Field -->
             <div>
                 <label class="flex items-center text-purple-600 font-semibold mb-2 text-sm">
@@ -26,6 +26,7 @@
                 <input 
                     type="text" 
                     id="username"
+                    name="username"
                     placeholder="Masukkan username"
                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
                     required
@@ -41,6 +42,7 @@
                 <input 
                     type="email" 
                     id="email"
+                    name="email"
                     placeholder="codetech.id@email.com"
                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
                     required
@@ -56,6 +58,7 @@
                 <input 
                     type="tel" 
                     id="phone"
+                    name="phone"
                     placeholder="082162624903"
                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
                 >
@@ -70,6 +73,7 @@
                 <input 
                     type="password" 
                     id="password"
+                    name="password"
                     placeholder="Minimal 6 karakter"
                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
                     required
@@ -86,6 +90,7 @@
                 <input 
                     type="password" 
                     id="confirmPassword"
+                    name="confirmPassword"
                     placeholder="Ulangi password"
                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
                     required
@@ -142,36 +147,6 @@
     </div>
 
     <script>
-        // Form submission handler
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            // Validation
-            if (!username || !email || !password || !confirmPassword) {
-                alert('Mohon isi semua field yang wajib!');
-                return;
-            }
-            
-            if (password.length < 6) {
-                alert('Password minimal 6 karakter!');
-                return;
-            }
-            
-            if (password !== confirmPassword) {
-                alert('Password dan konfirmasi password tidak cocok!');
-                return;
-            }
-            
-            // Success
-            alert('Pendaftaran berhasil! (Demo)\n\nUsername: ' + username + '\nEmail: ' + email);
-            console.log('Registration data:', { username, email, phone, password });
-        });
 
         // Google register handler
         document.getElementById('googleRegister').addEventListener('click', function() {

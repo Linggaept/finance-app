@@ -1,3 +1,15 @@
+<?php 
+    if(isset($_GET['error'])) {
+        if ($_GET['error'] == 'emptyfields') {
+            echo '<script>alert("Mohon isi semua field!")</script>';
+        } else if ($_GET['error'] == 'invalidcred') {
+            echo '<script>alert("Username atau password salah!")</script>';
+        }
+    }
+    if(isset($_GET['status']) && $_GET['status'] == 'registered') {
+        echo '<script>alert("Registrasi berhasil! Silakan login.")</script>';
+    }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -16,18 +28,20 @@
         </div>
 
         <!-- Form -->
-        <form id="loginForm" class="space-y-6">
+        <form id="loginForm" action="auth/login_process.php" method="POST" class="space-y-6">
             <!-- Username/Email/Phone Field -->
             <div>
                 <label class="flex items-center text-purple-600 font-semibold mb-2">
                     <i class="fas fa-user mr-2"></i>
-                    Username / Email / Phone
+                    Username / Email
                 </label>
                 <input 
                     type="text" 
                     id="username"
-                    placeholder="Masukkan username, email, atau phone"
+                    name="username"
+                    placeholder="Masukkan username atau email"
                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                    required
                 >
             </div>
 
@@ -40,8 +54,10 @@
                 <input 
                     type="password" 
                     id="password"
+                    name="password"
                     placeholder="Masukkan password"
                     class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                    required
                 >
             </div>
 
@@ -95,21 +111,6 @@
     </div>
 
     <script>
-        // Form submission handler
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            if (!username || !password) {
-                alert('Mohon isi semua field!');
-                return;
-            }
-            
-            alert('Login berhasil! (Demo)');
-            console.log('Username:', username);
-        });
-
         // Google login handler
         document.getElementById('googleLogin').addEventListener('click', function() {
             alert('Fitur login dengan Google akan segera tersedia!');
