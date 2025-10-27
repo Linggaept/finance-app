@@ -1,9 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header('Location: ../dashboard/index.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance Manager - Daftar Akun</title>
+    <title>Finplus - Daftar Akun</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -108,20 +115,20 @@
         </form>
 
         <!-- Divider -->
-        <div class="flex items-center my-6">
+        <!-- <div class="flex items-center my-6">
             <div class="flex-1 border-t border-gray-300"></div>
             <span class="px-4 text-gray-500 text-sm">atau</span>
             <div class="flex-1 border-t border-gray-300"></div>
-        </div>
+        </div> -->
 
         <!-- Google Register Button -->
-        <button 
+        <!-- <button 
             id="googleRegister"
             class="w-full bg-white border border-gray-300 text-gray-700 font-semibold py-3 rounded-xl hover:bg-gray-50 transition shadow-md flex items-center justify-center gap-2"
         >
             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="w-5 h-5">
             Daftar dengan Google
-        </button>
+        </button> -->
 
         <!-- Tips Keamanan Box -->
         <div class="mt-6 bg-purple-50 rounded-xl p-4 border border-purple-200">

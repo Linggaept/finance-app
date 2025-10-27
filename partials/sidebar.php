@@ -15,7 +15,7 @@
                 <i class="fas fa-dollar-sign text-xl"></i>
             </div>
             <div>
-                <h1 class="font-bold text-lg">Finance Manager</h1>
+                <h1 class="font-bold text-lg">Finplus</h1>
                 <p class="text-sm text-gray-300">Smart Money Management</p>
             </div>
         </div>
